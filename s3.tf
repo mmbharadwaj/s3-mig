@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "onebucket" {
-     bucket = "mbr1210"
+     bucket = "delete-100"
 
    acl = "private"
 
@@ -20,16 +20,32 @@ resource "aws_s3_bucket" "onebucket" {
 }
 
 
+# terraform {
+
+#   backend "s3" {
+
+#     bucket = "delete-100"
+
+#     key    = "terraform.tfstate"
+
+#     region = "us-east-2"
+
+#   }
+
+# }
+
 terraform {
+     
+    cloud {
 
-  backend "s3" {
+        organization = "bharad1210"
 
-    bucket = "mbr1210"
+        workspaces {
 
-    key    = "terraform.tfstate"
+            name = "s3-mig"
 
-    region = "ap-south-1"
+        }
 
-  }
+    }
 
 }
