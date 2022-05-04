@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "onebucket" {
-     bucket = "delete-100"
+
+   bucket = "delete-100"
 
    acl = "private"
 
@@ -19,23 +20,21 @@ resource "aws_s3_bucket" "onebucket" {
 
 }
 
+#terraform {
 
-# terraform {
+ # backend "s3" {
 
-#   backend "s3" {
+  #  bucket = "delete-100"
 
-#     bucket = "delete-100"
+   # key    = "terraform.tfstate"
 
-#     key    = "terraform.tfstate"
+   # region = "us-east-2"
 
-#     region = "us-east-2"
+  #}
 
-#   }
-
-# }
-
+#}
 terraform {
-     
+
     cloud {
 
         organization = "bharad1210"
